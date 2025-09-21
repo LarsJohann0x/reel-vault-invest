@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cinematic Film Investment Platform Design System */
+
+@layer base {
+  :root {
+    /* Cinema Dark Theme */
+    --background: 220 15% 8%;
+    --foreground: 45 100% 85%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 45 100% 85%;
+
+    --popover: 220 25% 15%;
+    --popover-foreground: 45 100% 85%;
+
+    /* Golden Film Colors */
+    --primary: 45 100% 60%;
+    --primary-foreground: 220 15% 8%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 45 90% 80%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 45 20% 65%;
+
+    --accent: 45 85% 55%;
+    --accent-foreground: 220 15% 8%;
+
+    /* Encrypted Matrix Green */
+    --encrypted: 120 100% 40%;
+    --encrypted-foreground: 220 15% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 45 100% 95%;
+
+    --border: 220 25% 25%;
+    --input: 220 20% 18%;
+    --ring: 45 100% 60%;
+
+    --radius: 0.75rem;
+
+    /* Film Industry Gradients */
+    --gradient-film: linear-gradient(135deg, hsl(45 100% 60%), hsl(45 85% 45%));
+    --gradient-encrypted: linear-gradient(135deg, hsl(120 100% 40%), hsl(180 100% 35%));
+    --gradient-cinema: linear-gradient(180deg, hsl(220 15% 8%), hsl(220 20% 12%));
+    --gradient-vault: linear-gradient(135deg, hsl(220 25% 15%), hsl(220 15% 8%));
+
+    /* Cinema Shadows */
+    --shadow-film: 0 25px 50px -12px hsl(45 100% 60% / 0.4);
+    --shadow-encrypted: 0 0 30px hsl(120 100% 40% / 0.3);
+    --shadow-vault: inset 0 0 20px hsl(220 25% 5%);
+
+    /* Smooth Cinematic Transitions */
+    --transition-cinematic: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+}
+
+@layer components {
+  /* Film Reel Animation */
+  .film-reel {
+    @apply relative inline-block;
+    animation: spin 8s linear infinite;
+  }
+  
+  .film-reel-slow {
+    @apply relative inline-block;
+    animation: spin 12s linear infinite;
+  }
+
+  /* Encrypted Text Effect */
+  .encrypted-text {
+    @apply relative bg-gradient-to-r from-encrypted to-cyan-400 bg-clip-text text-transparent;
+    animation: encrypt-glow 2s ease-in-out infinite alternate;
+  }
+  
+  .encrypted-blur {
+    filter: blur(4px);
+    @apply text-encrypted/60;
+    animation: decrypt-reveal 3s ease-in-out infinite;
+  }
+
+  /* Cinematic Button Variants */
+  .btn-film {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground;
+    @apply border border-primary/20 rounded-lg px-6 py-3;
+    @apply shadow-[0_0_20px_hsl(45_100%_60%_/_0.3)] hover:shadow-[0_0_30px_hsl(45_100%_60%_/_0.5)];
+    @apply transition-all duration-300 hover:scale-105;
+  }
+  
+  .btn-encrypted {
+    @apply bg-gradient-to-r from-encrypted to-cyan-500 text-encrypted-foreground;
+    @apply border border-encrypted/20 rounded-lg px-6 py-3;
+    @apply shadow-[0_0_20px_hsl(120_100%_40%_/_0.3)] hover:shadow-[0_0_30px_hsl(120_100%_40%_/_0.5)];
+    @apply transition-all duration-300 hover:scale-105;
+  }
+
+  /* Vault Animation */
+  .vault-door {
+    @apply relative overflow-hidden rounded-xl;
+    background: var(--gradient-vault);
+    box-shadow: var(--shadow-vault);
+  }
+  
+  .vault-door::before {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+    content: '';
+    background: var(--gradient-encrypted);
+    animation: vault-unlock 4s ease-in-out infinite;
+  }
+
+  /* Blockchain Mesh Pattern */
+  .blockchain-mesh {
+    background-image: 
+      linear-gradient(45deg, hsl(45 100% 60% / 0.1) 25%, transparent 25%),
+      linear-gradient(-45deg, hsl(45 100% 60% / 0.1) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, hsl(45 100% 60% / 0.1) 75%),
+      linear-gradient(-45deg, transparent 75%, hsl(45 100% 60% / 0.1) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  }
+}
